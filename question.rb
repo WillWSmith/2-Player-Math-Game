@@ -10,7 +10,7 @@ class Question
   end
 
   def ask_question(player_name)
-    puts "#{player_name}, what is #{@question}?"
+    puts "#{player_name}, what is #{@ask_question}?"
     gets.chomp.to_i  # Return the player's answer
   end
 
@@ -28,3 +28,4 @@ class Question
       @num1 / @num2
     end
   end
+end

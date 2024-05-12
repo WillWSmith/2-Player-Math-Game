@@ -26,6 +26,7 @@ class Game
       else
         @current_player.lose_life
         puts "Incorrect! Your remaining lives are now: #{@current_player.lives}"
+      end
 
       # Switch to the next player for the next turn
       @current_player = (@current_player == @player1) ? @player2 : @player1
@@ -51,3 +52,6 @@ class Game
     puts "#{winner.name} wins with a score of #{winner.score}"
   end
 end
+
+game = Game.new
+game.play

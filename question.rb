@@ -9,6 +9,11 @@ class Question
     @correct_answer = calculate_answer
   end
 
+  def ask_question(player_name)
+    puts "#{player_name}, what is #{@question}?"
+    gets.chomp.to_i  # Return the player's answer
+  end
+
   private
 
   def calculate_answer

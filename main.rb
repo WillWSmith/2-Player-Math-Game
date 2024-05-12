@@ -1,4 +1,5 @@
 require_relative 'player'
+require_relative 'question'
 
 class Game
   def initialize
@@ -12,7 +13,19 @@ class Game
       # Display whos turn it is
       puts "It's #{@current_player.name}'s turn."
 
+      # Create Question
+      question = Question.new
+
       # Prompt the player with a question
+      player_answer = question.ask_question(@current_player.name)
+
+      # Check if the player's answer is correct
+      if player_answer == question.correct_answer
+        @current_player.gain_score
+        puts "Correct! Your score is now: #{@current_player.score}"
+      else
+        @current_player.lose_life
+        puts "Incorrect! Your remaining lives are now: #{@current_player.lives}"
 
       # Switch to the next player for the next turn
       @current_player = (@current_player == @player1) ? @player2 : @player1
